@@ -1,0 +1,109 @@
+@import '../../node_modules/bulma';
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+section {
+  min-height: 60vh;
+}
+a {
+  outline: 0;
+}
+
+p, span, a {
+  font-size: 1.25rem;
+}
+
+hr {
+  height: 1px;
+  background-color: #E8EEFF;
+}
+
+.title {
+   font-family: $family-secondary;
+  color: $title-color;
+  position: relative; 
+}
+
+h1.title {
+  display:inline-block; 
+  &:before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: -5px; bottom: 0; left: -5px;
+    inset: 0 0 0 0;
+    background: $secondary-transparent;
+    z-index: -1;
+    transition: transform .3s ease;
+  }
+}
+
+h1.title, h1.title span{
+  font-style: normal;
+  font-weight: $title-weight;
+  font-size: 100px;
+  line-height: 130%;
+  position: relative;
+}
+
+h2.subtitle {
+  line-height: 2.4rem !important;
+}
+
+h2.title {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  &:before {
+    position: absolute;
+    content: " ";
+    width: 45px;
+    background-color: $secondary;
+    height: 7px;
+    left: -65px;
+    top: 23px;
+    border-radius: 3px;
+  }
+}
+
+.has-text-centered {
+  h2.title {
+    &:after {
+      border-radius: 3px;
+      position: absolute;
+      content: " ";
+      width: 45px;
+      background-color: $secondary;
+      height: 7px;
+      right: -65px;
+      top: 23px;
+    }
+  }
+}
+
+h3.title {
+  font-weight: 700;
+}
+
+.has-limited-width {
+  width: 670px;
+  max-width: 100%;
+}
+.is-horizontal-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+.has-text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}

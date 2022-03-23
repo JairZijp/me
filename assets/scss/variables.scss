@@ -1,0 +1,38 @@
+/* Import Bulma Utilities */
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Source+Code+Pro&display=swap');
+
+$family-sans-serif: 'Merriweather', sans-serif;
+$family-secondary: 'Gelasio', serif;
+$family-mono: 'Source Code Pro', monospace;
+
+// Colors
+$primary: #313552;
+$secondary: #B8405E;
+$secondary-alt: #2EB086;
+$secondary-transparent: rgba(184, 64, 94, .4);
+
+$secondary-invert: findColorInvert($secondary) !default;
+$secondary-alt-invert: findColorInvert($secondary-alt) !default;
+$accent: #FFAE0D;
+$accent-invert: findColorInvert($accent) !default;
+$yellow-light: #FFFDF7;
+
+$custom-colors: (
+  "secondary":($secondary, $secondary-invert),
+  "secondary-alt":($secondary-alt, $secondary-alt-invert),
+  "accent":($accent, $accent-invert),
+);
+
+$text: #313552;
+$link: $secondary;
+$link-hover: lighten($secondary, 20%);
+$link-focus: lighten($secondary, 20%);
+$link-active: lighten($secondary, 20%);
+
+$title-weight: 500;
+$title-color: $text;
+
+$body-line-height: 1.7;
+$button-padding-horizontal: 1.7em;
