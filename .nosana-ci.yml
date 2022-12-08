@@ -4,7 +4,6 @@ nosana:
 
 global:
     image: registry.hub.docker.com/library/node:16
-
     # Git, trigger on these branches
     trigger:
         branch:
@@ -19,7 +18,6 @@ global:
     allow_failure: true # default: false
 
 jobs:
-
     # Install dependencies
     - name: install
       commands: 
