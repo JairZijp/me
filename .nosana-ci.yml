@@ -7,9 +7,7 @@ global:
     # Git, trigger on these branches
     trigger:
         branch:
-            - main
-            - develop
-
+            - master
     # Environment variables
     environment:
         APP_ENV: production # comment here about this var
