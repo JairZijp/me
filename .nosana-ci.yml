@@ -8,7 +8,7 @@
       
           # Git, trigger on these branches
           trigger:
-              branch: '/^main/g'
+              branch: /^main/g
       
           # Environment variables
           environment:
