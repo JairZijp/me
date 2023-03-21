@@ -7,10 +7,11 @@
         image: node:16
 
         trigger:
-          branch:
-            - all
-          tag:
-            - all
+          push:
+            branches:
+              - all
+            tags:
+              - all
       
       jobs:
       
