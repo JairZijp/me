@@ -11,7 +11,7 @@
             branches:
               - all
             tags:
-              - all
+              - 'tag*'
       
       jobs:
       
