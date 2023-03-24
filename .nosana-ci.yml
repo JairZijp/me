@@ -21,7 +21,6 @@
               - npm ci
             artifacts: # artifact for the next job
               - name: node_modules
-                path: ./node_modules/
       
           # Lint and generate docs.
           - name: generate
@@ -31,7 +30,6 @@
                 - npm run generate
             resources: # artifact from previous job
                 - name: node_modules
-                  path: ./node_modules/
             artifacts: # artifact for deployment
                 - name: dist
                   path: ./dist/
