@@ -33,3 +33,7 @@
             artifacts: # artifact for deployment
                 - name: dist
                   path: ./dist/
+            trigger:
+              push:
+                branches:
+                  - 'main'
