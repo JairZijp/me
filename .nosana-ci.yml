@@ -1,39 +1,32 @@
-# .nosana-ci.yml
-      nosana:
-          description: Build Nosana Documentation
-          storage: IPFS
-      
-      global:
-        image: node:16
+global:
+  image: node:16
+  trigger:
+    push:
+      branches:
+        - all
+      tags:
+        - 'v*'
 
-        trigger:
-          push:
-            branches:
-              - all
-            tags:
-              - 'v*'
-      
-      jobs:
-      
-          # Install dependencies
-          - name: install
-            commands:
-              - npm ci
-            artifacts: # artifact for the next job
-              - name: node_modules
-      
-          # Lint and generate docs.
-          - name: generate
-            commands:
-                - npm run eslint
-                - npm run prettier
-                - npm run generate
-            resources: # artifact from previous job
-                - name: node_modules
-            artifacts: # artifact for deployment
-                - name: dist
-                  path: ./dist/
-            trigger:
-              push:
-                branches:
-                  - 'main'
+jobs:
+  # Install dependencies
+  - name: install
+    commands:
+      - npm ci
+    artifacts: # artifact for the next job
+      - name: node_modules
+
+  # Lint and generate docs.
+  - name: generate
+    commands:
+        - npm run eslint
+        - npm run prettier
+        - npm run generate
+    resources: # artifact from previous job
+        - name: node_modules
+    artifacts: # artifact for deployment
+        - name: dist
+          path: ./dist/
+    trigger:
+      push:
+        branches:
+          - 'main'
