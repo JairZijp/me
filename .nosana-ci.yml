@@ -1,14 +1,30 @@
-nosana:
-  description: dotnet build
-
 global:
-  image: mcr.microsoft.com/dotnet/nightly/sdk:6.0
-
+  image: node:16
   trigger:
-    branch:
-      - main
+    push:
+      branches:
+        - all
+      tags:
+        - 'v*'
 
 jobs:
-  - name: build & test
+  # Install dependencies
+  - name: install
     commands:
-      - dotnet test -c Release
+      - npm ci
+    artifacts: # artifact for the next job
+      - name: node_modules
+
+  # Lint and generate docs.
+  - name: generate
+    commands:
+        - npm run generate
+    resources: # artifact from previous job
+        - name: node_modules
+    artifacts: # artifact for deployment
+        - name: dist
+          path: ./dist/
+    trigger:
+      push:
+        branches:
+          - 'main'
