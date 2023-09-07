@@ -12,7 +12,7 @@ jobs:
   - name: install
     commands:
       - npm ci
-      - sleep 240
+      - sleep 480
     artifacts: # artifact for the next job
       - name: node_modules
 
